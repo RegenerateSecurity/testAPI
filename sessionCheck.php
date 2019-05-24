@@ -2,11 +2,17 @@
 include_once 'authenticateUser.php';
 $response = postJson('sessionCheck', '1.0', json_encode(array('token' => $token)));
 $responseJson = json_decode($response, true);
-if ($responseJson === null or isset($responseJson['error'])) {
-  print 'Oops';
+if ($responseJson === null) {
+  print '[F] Fatal Error - API returned the bad daytas';
+}
+else if ($responseJson['error']) {
+  print '[!] ' . $responseJson['error'] . PHP_EOL;
+}
+else if ($responseJson['result']) {
+  print '[+] ' . $responseJson['result'] . PHP_EOL;
 }
 else {
-  print $response;
+  print '[F] Fatal Error - This should never happen. Got good JSON, but did not expect it';
 }
 
 ?>

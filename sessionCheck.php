@@ -13,6 +13,9 @@ else if (isset($responseJson['error'])) {
 }
 else if (isset($responseJson['result'])) {
   print '[+] Result: ' . $responseJson['result'] . PHP_EOL;
+  print '[+] Privs: ';
+  print $responseJson['privs'];
+  print PHP_EOL;
 }
 else {
   print '[F] Fatal Error - This should never happen. Got good JSON, but did not expect it';

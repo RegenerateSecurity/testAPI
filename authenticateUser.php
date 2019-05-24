@@ -15,6 +15,7 @@ else if (isset($responseJson['error'])) {
 }
 else if (isset($responseJson['token'])) {
   print '[+] Token: ' . $responseJson['token'] . PHP_EOL;
+  $token = $responseJson['token']; // Allow this file to be included in post-auth checks
 }
 else {
   die('[F] Fatal - received JSON but did not expect it' . PHP_EOL);
